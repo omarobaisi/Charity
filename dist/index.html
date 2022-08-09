@@ -7,16 +7,24 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>HTML</h1>
     <!--! Handlebar -->
-    <div id="charity-container"></div>
+    <input id="charitySpecific" type="text" placeholder="Name of Charity" />
+    <button id="search" onclick="getCharityByName()">
+      <i class="fa fa-search">Search</i>
+    </button>
     <script id="charity-template" type="text/x-handlebars-template">
-      {{#each item}}{{/each}}
+      <div>
+        <div>{{name}}</div>
+        <div>{{description}}</div>
+        <div>{{classification}}</div>
+        <div>{{website}}</div>
+      </div>
     </script>
+    <div id="charity-container"></div>
     <script src="./handlebars/dist/handlebars.js"></script>
     <script src="./jquery/dist/jquery.js"></script>
     <script src="Renderer.js"></script>
     <script src="Charity.js"></script>
-    <script src="./main.js"></script>
+    <script src="main.js"></script>
   </body>
 </html>
