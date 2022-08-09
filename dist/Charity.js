@@ -1,3 +1,5 @@
+const { response } = require("express");
+
 render = new Renderer();
 const Charity = class {
   getAllCharity() {
@@ -36,4 +38,22 @@ const Charity = class {
       },
     });
   }
-};
+
+  donate(){
+    
+    const donor= {
+      name: name,
+      amount:amount
+    }
+  axios
+    .post("/donate", donor )
+    .then((response) => {
+      this.produits = response.donor
+    })
+    .catch(function (error) {
+      console.log(error)
+    })
+  }
+  
+
+}

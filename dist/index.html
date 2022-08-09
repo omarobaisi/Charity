@@ -4,12 +4,70 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>charity</title>
   </head>
   <body>
-    <h1>HTML</h1>
-    <!--! Handlebar -->
+   
     <div id="charity-container"></div>
+
+    <div class="container">
+      <div class="header">
+          <img src="images/logo.png" class="logo">
+          <nav>
+              <ul>
+                  <li><a href="">Home</a></li>
+                  <li><a href="">Contact</a></li>
+              </ul>
+          </nav>
+          
+      </div>
+      <div class="content">
+          <div class="text">
+          <h1>Be Young, Have Fun, <br> <span>place holdar</span></h1>
+          <p>another place holder<br>blahblahblahblah <br>zzzzzzzzzz</p>
+          <button class="btn3">donate Now</button>
+         </div>
+     </div>
+ </div>
+
+ <div>
+  <label for="name">Name:</label><br>
+  <input type="text" name="fullName" onkeypress="return (event.charCode > 64 && 
+        event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode=0)" 
+        placeholder="Full Name"><br>
+  <label for="amount">Amount:</label><br>
+  <input class="mask" type="number" id="amount" name="amount" min="1" placeholder="amount of donation"/>
+  
+  <script>
+    $("input.mask").each((i,ele)=>{
+     let clone=$(ele).clone(false)
+     clone.attr("type","text")
+     let ele1=$(ele)
+     clone.val(Number(ele1.val()).toLocaleString("en"))
+     $(ele).after(clone)
+     $(ele).hide()
+     clone.mouseenter(()=>{
+ 
+       ele1.show()
+       clone.hide()
+     })
+     setInterval(()=>{
+       let newv=Number(ele1.val()).toLocaleString("en")
+       if(clone.val()!=newv){
+         clone.val(newv)
+       }
+     },10)
+ 
+     $(ele).mouseleave(()=>{
+       $(clone).show()
+       $(ele1).hide()
+     })
+   })
+ </script> 
+ </div>
+ 
     <script id="charity-template" type="text/x-handlebars-template">
       {{#each item}}{{/each}}
     </script>

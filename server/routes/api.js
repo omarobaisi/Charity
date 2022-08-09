@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Charity = require("../models/charity");
 const axios = require("axios");
+const Doner = require("../models/donor")
 
 const getCharityInfo = async () => {
   try {
@@ -47,6 +48,12 @@ router.get("/fetchCharities", async function (request, response) {
 router.get("/getCharities", async (req, res) => {
   const charities = await Charity.find({});
   res.send(charities);
+})
+
+router.get("/donate", async (req, res) => {
+  const newDonation = new Doner(res)
+  const charities = await newDonation.save()
+  res.send(charities)
 })
 
 module.exports = router;
