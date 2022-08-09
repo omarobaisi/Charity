@@ -1,10 +1,7 @@
 const express = require("express");
 const router = express.Router();
+const axios = require("axios");
 
 const Charity = require("../models/charity");
-
-router.get("/charity", function (req, res) {
-  res.send("page")
-});
 
 module.exports = router;
