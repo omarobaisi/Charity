@@ -14,30 +14,30 @@ const getCharityInfo = async () => {
 };
 
 const orgenizeAPI = (data) => {
-  const charities = []
-  for(let i=50; i<100; i++) {
-    if(data[i].irsClassification) {
+  const charities = [];
+  for (let i = 50; i < 100; i++) {
+    if (data[i].irsClassification) {
       let newCharity = {
         name: data[i].charityName,
         description: data[i].irsClassification.affiliation,
         website: data[i].charityNavigatorURL,
         classification: data[i].irsClassification.classification,
       };
-      charities.push(newCharity)
+      charities.push(newCharity);
     }
   }
-  return charities
-}
+  return charities;
+};
 
 router.get("/fetchCharities", async function (request, response) {
   try {
     let charityInfo = await getCharityInfo();
     const charities = orgenizeAPI(charityInfo.data);
-    charities.forEach(async charity => {
-      const newCharities = new Charity(charity)
+    charities.forEach(async (charity) => {
+      const newCharities = new Charity(charity);
       const savedCharities = await newCharities.save();
-      console.log(savedCharities)
-    })
+      console.log(savedCharities);
+    });
     response.send(charities);
   } catch (e) {
     console.log(e);
@@ -47,6 +47,17 @@ router.get("/fetchCharities", async function (request, response) {
 router.get("/getCharities", async (req, res) => {
   const charities = await Charity.find({});
   res.send(charities);
-})
+});
+
+router.get("/getCharity/:Charity", function (req, response) {
+  charityToFind = req.params.Charity;
+  Charity.findOne({ name: charityToFind }, function (err, res) {
+    if (res) {
+      response.send(res);
+    } else {
+      response.send("not found");
+    }
+  });
+});
 
 module.exports = router;
