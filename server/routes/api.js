@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const Charity = require("../models/charity");
+const Doner = require("../models/donor");
+
 const axios = require("axios");
 
 const getCharityInfo = async () => {
@@ -50,7 +52,7 @@ router.get("/getCharities", async (req, res) => {
 });
 
 router.get("/getCharity/:Charity", function (req, response) {
-  charityToFind = req.params.Charity;
+  const charityToFind = req.params.Charity;
   Charity.findOne({ name: charityToFind }, function (err, res) {
     if (res) {
       response.send(res);
@@ -58,6 +60,19 @@ router.get("/getCharity/:Charity", function (req, response) {
       response.send("not found");
     }
   });
+});
+
+router.get("/charities/:classification", async function (request, response) {
+  let classification = request.params.classification;
+  const charities = await Charity.find({ classification: classification });
+  response.send(charities);
+});
+
+router.post("/donate", async (req, res) => {
+  const donation = req.body;
+  const newDonation = new Doner(donation);
+  const charities = await newDonation.save();
+  res.send(charities);
 });
 
 module.exports = router;

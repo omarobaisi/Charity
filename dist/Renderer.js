@@ -3,8 +3,7 @@ class Renderer {
     this.container = container;
     this.template = template;
   }
-
-  render(data) {
+  renderCharities(data) {
     $(this.container).empty();
     const source = $(this.template).html();
     const temp = Handlebars.compile(source);
