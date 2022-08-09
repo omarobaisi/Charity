@@ -1,13 +1,13 @@
 const renderer = new Renderer($("#charity-container"), $("#charity-template"));
-const Charity = class {
-  getAllCharity() {
+const CharityApi = class {
+  getAll() {
     $.get("/getCharities", function (error, response) {
       console.log(response);
 
       //render.render(response);
     });
   }
-  getClassificationCharity() {
+  getClassification() {
     let charityClassification = $("#charityClassification").val();
     $.ajax({
       type: "get",
@@ -23,14 +23,7 @@ const Charity = class {
       },
     });
   }
-  getSpecificCharity = function (charitySpecific) {
-    // const data = await $.ajax({
-    //   type: "get",
-    //   cache: false,
-    //   url: `/getCharity/${charitySpecific}`,
-    // });
-    // console.log(data);
-    // await render.render({ data });
+  getByName = function (charitySpecific) {
     $.get(`/getCharity/${charitySpecific}`, (response) => {
       renderer.render(response);
     });

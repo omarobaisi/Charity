@@ -1,5 +1,5 @@
-const charity = new Charity();
+const charityApi = new CharityApi();
 getCharityByName = function () {
-  let charitySpecific = $("#charitySpecific").val();
-  charity.getSpecificCharity(charitySpecific);
+  let charityName = $("#charitySpecific").val();
+  charityApi.getByName(charityName);
 };
