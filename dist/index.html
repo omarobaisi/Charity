@@ -15,8 +15,9 @@
     </script>
     <div>
       <label for="classification">Classification</label>
+<!--
 
-      <select name="classification" id="classification">
+      <select name="classification" id="classification-choice" onchange="getClassifiedCharities(this)">
         <option value="">Choose Organization</option>
         <option value="Religious Organization">Religious Organization</option>
         <option value="Charitable Organization">Charitable Organization</option>
@@ -34,9 +35,26 @@
         <option value="Civic League">Civic League</option>
         <option value="Business League">Business League</option>
       </select>
+-->
+      
+      <!--
+      <script id="charity-template" type="text/x-handlebars-template">
+        {{#each item}}
+          <select
+            name="classification" id="classification-choice" onchange="getClassifiedCharities(this)">
+            <option value="{{classification}}">{{classification}}</option>
+          </select>
+        {{/each}}
+      </script>
+      -->
+    
+       
+      
     </div>
     <script src="./handlebars/dist/handlebars.js"></script>
     <script src="./jquery/dist/jquery.js"></script>
+    <script src="Renderer.js"></script>
+    <script src="Charity.js"></script>
     <script src="./main.js"></script>
   </body>
 </html>
