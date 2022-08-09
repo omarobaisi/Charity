@@ -10,13 +10,29 @@
     <h1>HTML</h1>
     <!--! Handlebar -->
     <div id="charity-container"></div>
+    <div id="charities-container"></div>
     <script id="charity-template" type="text/x-handlebars-template">
-      {{#each item}}{{/each}}
+      {{#each item}}
+        <div>
+          <div>{{name}}</div>
+          <div>{{classification}}</div>
+          <div>{{discription}}</div>
+          <div>{{website}}</div>
+        </div>
+      {{/each}}
+    </script>
+    <script id="charities-template" type="text/x-handlebars-template">
+      {{#each item}}
+        <div>
+          <div>{{name}}</div>
+        </div>
+      {{/each}}
     </script>
     <script src="./handlebars/dist/handlebars.js"></script>
     <script src="./jquery/dist/jquery.js"></script>
-    <script src="Renderer.js"></script>
-    <script src="Charity.js"></script>
+    <script src="./Renderer.js"></script>
+    <script src="./Charity.js"></script>
+    <script src="./controller.js"></script>
     <script src="./main.js"></script>
   </body>
 </html>

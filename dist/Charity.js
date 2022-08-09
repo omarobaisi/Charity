@@ -1,10 +1,10 @@
-render = new Renderer();
+const renderer = new Renderer("#charities-container", "#charities-template");
+
 const Charity = class {
-  getAllCharity() {
-    $.get("/getCharities", function (error, response) {
-      console.log(response);
-      //render.render(response);
-    });
+  async getAllCharity() {
+    const data = await $.get("/getCharities")
+    console.log(data);
+    renderer.render(data);
   }
   getClassificationCharity() {
     let charityClassification = $("#charityClassification").val();
