@@ -1,4 +1,3 @@
-render = new Renderer("#charities-container", "#charities-template");
 const Charity = class {
   getClassificationCharity(charityClassification) {
     $.ajax({
@@ -10,7 +9,8 @@ const Charity = class {
         return;
       },
       success: function (response) {
-        render.render(response);
+        const renderer = new Renderer("#charities-container", "#charities-template");
+        renderer.renderCharities(response);
       },
     });
   }

@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <div>
@@ -42,10 +43,33 @@
         <option value="Business League">Business League</option>
       </select>
     </div>
+
+    <input id="charitySpecific" type="text" placeholder="Name of Charity" />
+    <button id="search" onclick="getCharityByName()">
+      <i class="fa fa-search">Search</i>
+    </button>
+
+    <div id="charity-container"></div>
+    <div id="charities-container"></div>
+    <script id="charity-template" type="text/x-handlebars-template">
+      <div>
+        <div>{{name}}</div>
+        <div>{{description}}</div>
+        <div>{{classification}}</div>
+        <div>{{website}}</div>
+      </div>
+    </script>
+    <script id="charities-template" type="text/x-handlebars-template">
+      {{#each item}}
+        <div class="Card">
+          <div>{{name}}</div>
+        </div>
+      {{/each}}
+    </script>
     <script src="./handlebars/dist/handlebars.js"></script>
     <script src="./jquery/dist/jquery.js"></script>
-    <script src="Renderer.js"></script>
-    <script src="Charity.js"></script>
-    <script src="./main.js"></script>
+    <script src="./Renderer.js"></script>
+    <script src="./CharityApi.js"></script>
+    <script src="./controller.js"></script>
   </body>
 </html>
