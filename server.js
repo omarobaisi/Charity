@@ -13,7 +13,7 @@ mongoose.connect('mongodb://localhost/charity', { useNewUrlParser: true })
 
 app.use("/", api);
 
-const port = 3000;
+const port = 8088;
 app.listen(port, function () {
   console.log(`Server running on ${port}`);
 });
