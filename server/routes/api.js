@@ -66,4 +66,11 @@ router.get("/charities/:classification", async function (request, response) {
   response.send(charities);
 });
 
+router.post("/donate", async (req, res) => {
+  const donation = req.body
+  const newDonation = new Doner(donation)
+  const charities = await newDonation.save()
+  res.send(charities)
+})
+
 module.exports = router;

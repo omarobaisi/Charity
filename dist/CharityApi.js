@@ -8,7 +8,7 @@ const CharityApi = class {
     );
     renderer.renderCharities(data);
   }
-  
+
   getByName = function (charitySpecific) {
     $.get(`/getCharity/${charitySpecific}`, (response) => {
       const renderer = new Renderer(
@@ -29,9 +29,27 @@ const CharityApi = class {
         return;
       },
       success: function (response) {
-        const renderer = new Renderer("#charities-container", "#charities-template");
+        const renderer = new Renderer(
+          "#charities-container",
+          "#charities-template"
+        );
         renderer.renderCharities(response);
       },
     });
+  }
+
+  donate() {
+    const donor = {
+      name: name,
+      amount: amount,
+    };
+    axios
+      .post("/donate", donor)
+      .then((response) => {
+        this.produits = response.donor;
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 };
