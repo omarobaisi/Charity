@@ -19,9 +19,9 @@ const orgenizeAPI = (data) => {
     if(data[i].irsClassification) {
       let newCharity = {
         name: data[i].charityName,
-        classification: data[i].irsClassification.classification,
         description: data[i].irsClassification.affiliation,
         website: data[i].charityNavigatorURL,
+        classification: data[i].irsClassification.classification,
       };
       charities.push(newCharity)
     }
@@ -29,14 +29,24 @@ const orgenizeAPI = (data) => {
   return charities
 }
 
-router.get("/charities", async function (request, response) {
+router.get("/fetchCharities", async function (request, response) {
   try {
     let charityInfo = await getCharityInfo();
-    const charities = orgenizeAPI(charityInfo.data)
+    const charities = orgenizeAPI(charityInfo.data);
+    charities.forEach(async charity => {
+      const newCharities = new Charity(charity)
+      const savedCharities = await newCharities.save();
+      console.log(savedCharities)
+    })
     response.send(charities);
   } catch(e) {
       console.log(e)
   }
 });
+
+router.get("/getCharities", async (req, res) => {
+  const charities = await Charity.find({});
+  res.send(charities);
+})
 
 module.exports = router;
