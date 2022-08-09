@@ -21,15 +21,13 @@ router.get("/charities", async function (request, response) {
     let charityInfo = await getCharityInfo();
     const charities = []
     charityInfo = charityInfo.data
-    // console.log(charityInfo.length)
-    // response.end();
     for(let i=50; i<100; i++) {
       if(charityInfo[i].irsClassification) {
         let newCharity = {
           name: charityInfo[i].charityName,
           classification: charityInfo[i].irsClassification.classification,
           description: charityInfo[i].irsClassification.affiliation,
-          website: charityInfo[i].websiteURL,
+          //website: charityInfo[i].websiteURL,
         };
         charities.push(newCharity)
       }
