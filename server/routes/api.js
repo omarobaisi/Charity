@@ -9,7 +9,8 @@ const getCharityInfo = async () => {
     let charityInfo = await axios.get(
       `https://api.data.charitynavigator.org/v2/Organizations?app_id=d54cad3f&app_key=202cc4e34ec2318a42feb48a2ffe8424`
     );
-    console.log(charityInfo);
+    //console.log(charityInfo);
+    return charityInfo;
   } catch (e) {
     console.log(e);
   }
@@ -18,26 +19,25 @@ const getCharityInfo = async () => {
 router.get("/charities", async function (request, response) {
   try {
     let charityInfo = await getCharityInfo();
-    console.log(charityInfo)
-    response.end();
+    const charities = []
+    charityInfo = charityInfo.data
+    // console.log(charityInfo.length)
+    // response.end();
+    for(let i=50; i<100; i++) {
+      if(charityInfo[i].irsClassification) {
+        let newCharity = {
+          name: charityInfo[i].charityName,
+          classification: charityInfo[i].irsClassification.classification,
+          description: charityInfo[i].irsClassification.affiliation,
+          website: charityInfo[i].websiteURL,
+        };
+        charities.push(newCharity)
+      }
+    }
+    response.send(charities);
   } catch(e) {
       console.log(e)
   }
-  
-  // charityInfo
-  //   .then(function (resp) {
-  //     //let charityInfo = resp.data;
-  //     let charity = {
-  //       name: charityInfo.charityName,
-  //       classification: charityInfo.irsClassification.classification,
-  //       description: charityInfo.irsClassification.affiliation,
-  //       website: charityInfo.websiteURL,
-  //     };
-  //     response.send(charity);
-  //   })
-  //   .catch(function (error) {
-  //     response.status(404).send({ error: "The city name does not exist" });
-  //   });
 });
 
 module.exports = router;
