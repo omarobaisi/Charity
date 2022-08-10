@@ -31,7 +31,7 @@
         id="classification-choice"
         onchange="getClassifiedCharities(this)"
       >
-        <option value="">Choose Organization</option>
+        <option value="Choose Organization">Choose Organization</option>
         <option value="Religious Organization">Religious Organization</option>
         <option value="Charitable Organization">Charitable Organization</option>
         <option value="Educational Organization">
@@ -62,22 +62,24 @@
       </select>
     </div>
 
-    <input id="charitySpecific" type="text" placeholder="Name of Charity" />
-    <button id="search" onclick="getCharityByName()">
-      <i class="fa fa-search">Search</i>
-    </button>
+    <input
+      id="charitySpecific"
+      type="text"
+      placeholder="Name of Charity"
+      oninput="filltritng()"
+    />
 
     <div id="charity-container"></div>
     <div id="charities-container"></div>
     <script id="charity-template" type="text/x-handlebars-template">
       <div class="charityInfo">
-        <i class="fa fa-times" aria-hidden="true" id="delete"></i>
         <div>
           <div id="name">{{name}}</div>
           <div>{{description}}</div>
           <div>{{classification}}</div>
           <div>{{website}}</div>
           <div id="total">total = {{total}}</div>
+          <span class="close" onclick="closeCharityInfo()">&times;</span>
         </div>
         <div>
           <button id="donateNow" onclick="donait(this)">donate Now</button>

@@ -62,7 +62,17 @@ router.get("/getCharity/:Charity", function (req, response) {
 });
 router.get("/charities/:classification", async function (request, response) {
   let classification = request.params.classification;
-  const charities = await Charity.find({ classification: classification });
+  let charities;
+  console.log(classification)
+  try {
+    if(classification == "Choose Organization") {
+      charities = await Charity.find({});
+    } else {
+      charities = await Charity.find({ classification: classification });
+    }
+  } catch(e) {
+    console.log(e)
+  }
   response.send(charities);
 });
 router.post("/donate", async (req, res) => {

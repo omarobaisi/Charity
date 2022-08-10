@@ -1,12 +1,15 @@
 const CharityApi = class {
+  constructor() {
+    this.data = [];
+  }
   async getAllCharity() {
-    const data = await $.get("/getCharities");
-    console.log(data);
+    this.data = await $.get("/getCharities");
+    console.log(this.data);
     const renderer = new Renderer(
       $("#charities-container"),
       $("#charities-template")
     );
-    renderer.renderCharities(data);
+    renderer.renderCharities(this.data);
   }
 
   getByName = function (charitySpecific) {
@@ -27,7 +30,7 @@ const CharityApi = class {
       cache: false,
       url: `/charities/${charityClassification}`,
       error: function (request, error) {
-        alert(" charity Not found or invlid input");
+        alert("charity Not found or invlid input");
         return;
       },
       success: function (response) {
@@ -61,5 +64,17 @@ const CharityApi = class {
       console.log(e)
     }
     
+  }
+  async filltringCharity(name) {
+    let newArray = this.data.filter((e) => {
+      if (e.name.toLowerCase().includes(name.toLowerCase())) {
+        return e;
+      }
+    });
+    const renderer = new Renderer(
+      $("#charities-container"),
+      $("#charities-template")
+    );
+    renderer.renderCharities(newArray);
   }
 };
