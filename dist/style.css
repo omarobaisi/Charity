@@ -45,6 +45,7 @@
     letter-spacing: .1em;
     font-size: 40px;
     color: #fff;
+    user-select: none;
   }
   .content .text h1 span {
     font-size: 50px;
@@ -55,7 +56,9 @@
     letter-spacing: .1em;
     margin-top: 40px;
     color: #030303;
+    user-select: none;
   }
+
   .cards {
     width: 100%;
     margin: 50px;
@@ -64,26 +67,74 @@
     grid-gap: 1rem;
     text-align: center;
   }
+
   .card {
     border: 1px solid black;
     transition: 300ms ease-in-out;
     height: 300px;
     margin: 20px;
+    background: #FFEBCD;
+    background-size: auto;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: 0.5s;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
+
+  .card h3{
+    font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+  font-size: 25px;
+  font-weight: 600;
+  }
+
+  .card p{
+    font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 600;
+  }
+  
+  .Card {
+  background-color: red;
+  border: 1px solid black;
+}
+
   .card:hover {
     transform: scale(1.1, 1.1);
   }
 
-
-
-
-
   .charityInfo {
     border: 1px solid black;
   }
+  
+.nav {
+  flex: 1;
+  padding-left: 100px;
+  display: inline-block;
+  list-style: none;
+  margin: 15px;
+  color: rgb(0, 0, 0);
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 600;
+}
 
+.nav #classification-choice{
+  flex: 1; 
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+}
 
-.Card {
-  background-color: red;
-  border: 1px solid black;
+.nav #charitySpecific{
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 600;
 }

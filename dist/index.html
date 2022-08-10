@@ -24,8 +24,8 @@
       </div>
     </div>
 
-    <div>
-      <label for="classification">Classification</label>
+    <div class="nav">
+      <label class="nav" for="classification">Classification</label>
       <select
         name="classification"
         id="classification-choice"
@@ -60,12 +60,10 @@
         <option value="Civic League">Civic League</option>
         <option value="Business League">Business League</option>
       </select>
+       <input id="charitySpecific" type="text" placeholder="Name of Charity" /></button>
     </div>
 
-    <input id="charitySpecific" type="text" placeholder="Name of Charity" />
-    <button id="search" onclick="getCharityByName()">
-      <i class="fa fa-search">Search</i>
-    </button>
+    
 
     <div id="charity-container"></div>
     <div id="charities-container"></div>
@@ -114,6 +112,16 @@
         {{/each}}
       </div>
     </script>
+
+    <div class="cards">
+      {{#each item}}
+        <div class="card" style="background-image: url('images/jar.png');">     
+          <h3>{{name}}</h3>
+          <p>{{classification}}</p>
+        </div>
+      {{/each}}
+    </div>
+    
     <script src="./handlebars/dist/handlebars.js"></script>
     <script src="./jquery/dist/jquery.js"></script>
     <script src="./Renderer.js"></script>
