@@ -38,12 +38,13 @@ const CharityApi = class {
     });
   }
 
-  donate(name, amount) {
-    const donor = {
+  donate(name, amount, nameOfcharity) {
+    const donorInfo = {
       name: name,
       amount: amount,
+      nameOfcharity: nameOfcharity,
     };
-    console.log(name);
-    $.post("/donate", donor, function (res) {});
+
+    $.post("/donate", donorInfo, function (res) {});
   }
 };

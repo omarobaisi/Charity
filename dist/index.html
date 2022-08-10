@@ -71,14 +71,14 @@
     <script id="charity-template" type="text/x-handlebars-template">
       <div class="charityInfo">
         <div>
-          <div>{{name}}</div>
+          <div id="name">{{name}}</div>
           <div>{{description}}</div>
           <div>{{classification}}</div>
           <div>{{website}}</div>
         </div>
         <div>
-          <button id="donateNow" onclick="donait()">donate Now</button>
-    
+          <button id="donateNow" onclick="donait(this)">donate Now</button>
+
           <label for="name">Name:</label><br />
           <input
             type="text"
@@ -97,14 +97,14 @@
             min="1"
             placeholder="amount of donation"
           />
-          <input type="hidden" value="{{name}}">
+          <input type="hidden" value="{{name}}" />
         </div>
       </div>
     </script>
     <script id="charities-template" type="text/x-handlebars-template">
       <div class="cards">
         {{#each item}}
-          <div class="card">
+          <div class="card" onclick="getInfoFromDiv(this)">
             <h3>{{name}}</h3>
             <p>{{classification}}</p>
           </div>

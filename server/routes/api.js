@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Charity = require("../models/charity");
-const Doner = require("../models/donor")
+const Doner = require("../models/donor");
 const axios = require("axios");
 
 const getCharityInfo = async () => {
@@ -60,18 +60,20 @@ router.get("/getCharity/:Charity", function (req, response) {
     }
   });
 });
-
 router.get("/charities/:classification", async function (request, response) {
   let classification = request.params.classification;
   const charities = await Charity.find({ classification: classification });
   response.send(charities);
 });
-
 router.post("/donate", async (req, res) => {
   const donation = req.body;
-  const newDonation = new Doner(donation);
-  const charities = await newDonation.save();
-  res.send(charities);
+  res.end();
+  let doner = new Doner({ name: donation.name, amount: donation.amount });
+  doner.save();
+  Charity.findOne({ name: donation.nameOfcharity }, function (err, res) {
+    res.doners.push(doner);
+    res.save();
+  });
 });
 
 module.exports = router;
