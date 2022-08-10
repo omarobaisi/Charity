@@ -16,6 +16,7 @@ const CharityApi = class {
         $("#charity-template")
       );
       renderer.renderCharity(response);
+      deleteCharity();
     });
   };
 
