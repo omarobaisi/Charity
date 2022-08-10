@@ -75,5 +75,12 @@ router.post("/donate", async (req, res) => {
     res.save();
   });
 });
-
+router.get("/getCharityAmount/:Charity", function (req, response) {
+  const charityToFind = req.params.Charity;
+  Charity.findOne({ name: charityToFind })
+    .populate("doners")
+    .exec(function (err, res) {
+      response.send(res);
+    });
+});
 module.exports = router;

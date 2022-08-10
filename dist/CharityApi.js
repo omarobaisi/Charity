@@ -44,7 +44,15 @@ const CharityApi = class {
       amount: amount,
       nameOfcharity: nameOfcharity,
     };
-
     $.post("/donate", donorInfo, function (res) {});
+  }
+  getTotalAmount(charityName) {
+    let totalamount = 0;
+    $.get(`/getCharityAmount/${charityName}`, function (response) {
+      response.doners.forEach((element) => {
+        totalamount += element.amount;
+      });
+      return totalamount;
+    });
   }
 };
