@@ -71,6 +71,9 @@ const CharityApi = class {
         return e;
       }
     });
+    if(name !== "") {
+      $("#classification-choice").val("Choose Organization").change();
+    }
     const renderer = new Renderer(
       $("#charities-container"),
       $("#charities-template")
