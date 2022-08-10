@@ -10,7 +10,8 @@ const CharityApi = class {
   }
 
   getByName = function (charitySpecific) {
-    $.get(`/getCharity/${charitySpecific}`, (response) => {
+    $.get(`/getCharity/${charitySpecific}`, async (response) => {
+      response.total = await this.getTotalAmount(charitySpecific)
       const renderer = new Renderer(
         $("#charity-container"),
         $("#charity-template")
@@ -39,21 +40,26 @@ const CharityApi = class {
     });
   }
 
-  donate(name, amount, nameOfcharity) {
+  async donate(name, amount, nameOfcharity) {
     const donorInfo = {
       name: name,
       amount: amount,
       nameOfcharity: nameOfcharity,
     };
-    $.post("/donate", donorInfo, function (res) {});
+    await $.post("/donate", donorInfo);
+    this.getByName(nameOfcharity);
   }
-  getTotalAmount(charityName) {
+  async getTotalAmount(charityName) {
     let totalamount = 0;
-    $.get(`/getCharityAmount/${charityName}`, function (response) {
+    try {
+      const response = await $.get(`/getCharityAmount/${charityName}`);
       response.doners.forEach((element) => {
         totalamount += element.amount;
       });
       return totalamount;
-    });
+    } catch(e) {
+      console.log(e)
+    }
+    
   }
 };

@@ -20,6 +20,7 @@ class Renderer {
       description: data.description,
       classification: data.classification,
       website: data.website,
+      total: data.total
     });
     this.container.append(newHTML);
   }

@@ -66,14 +66,17 @@ router.get("/charities/:classification", async function (request, response) {
   response.send(charities);
 });
 router.post("/donate", async (req, res) => {
-  const donation = req.body;
-  res.end();
-  let doner = new Doner({ name: donation.name, amount: donation.amount });
-  doner.save();
-  Charity.findOne({ name: donation.nameOfcharity }, function (err, res) {
-    res.doners.push(doner);
-    res.save();
-  });
+  try {
+    const donation = req.body;
+    let doner = new Doner({ name: donation.name, amount: donation.amount });
+    await doner.save();
+    let charity = await Charity.findOne({ name: donation.nameOfcharity });
+    charity.doners.push(doner);
+    await charity.save();
+    res.end();
+  } catch(e) {
+    console.log(e)
+  }
 });
 router.get("/getCharityAmount/:Charity", function (req, response) {
   const charityToFind = req.params.Charity;
