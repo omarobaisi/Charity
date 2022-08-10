@@ -20,4 +20,11 @@ const donait = function () {
   charityApi.donate(nameOfdoner, amount);
 };
 
+const deleteCharity = () => {
+  $("#delete").on("click", function(){
+    console.log("Delete");
+     $("#charity-container").empty();
+  });
+}
+
 renderCharities();
