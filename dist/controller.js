@@ -5,19 +5,21 @@ const renderCharities = async () => {
 };
 
 getClassifiedCharities = function (choice) {
-    let CharityClassification = $(choice).val()
-    charityApi.getClassificationCharity(CharityClassification);
-  };
+  let CharityClassification = $(choice).val();
+  charityApi.getClassificationCharity(CharityClassification);
+};
 
 getCharityByName = function () {
   let charityName = $("#charitySpecific").val();
   charityApi.getByName(charityName);
 };
 
-const donait = function () {
+const donait = function (donaitButton) {
+  let div = $(donaitButton).closest(".charityInfo");
+  nameOfcharity = $(div).find("#name").text();
   let amount = $("#amount").val();
   let nameOfdoner = $("#nameOfdoner").val();
-  charityApi.donate(nameOfdoner, amount);
+  charityApi.donate(nameOfdoner, amount, nameOfcharity);
 };
 
 const deleteCharity = () => {
@@ -27,4 +29,8 @@ const deleteCharity = () => {
   });
 }
 
+getInfoFromDiv = function (div) {
+  let name = $(div).find("h3").text();
+  charityApi.getByName(name);
+};
 renderCharities();
