@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <script src="https://kit.fontawesome.com/dcd23d6329.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <div class="container">
@@ -24,50 +24,64 @@
       </div>
     </div>
 
-    <div>
-      <label for="classification">Classification</label>
-      <select
-        name="classification"
-        id="classification-choice"
-        onchange="getClassifiedCharities(this)"
-      >
-        <option value="Choose Organization">Choose Organization</option>
-        <option value="Religious Organization">Religious Organization</option>
-        <option value="Charitable Organization">Charitable Organization</option>
-        <option value="Educational Organization">
-          Educational Organization
-        </option>
-        <option value="Charitable Organization">Charitable Organization</option>
-        <option value="Pleasure, Recreational, or Social Club">
-          Pleasure, Recreational, or Social Club
-        </option>
-        <option value="Labor Organization">Labor Organization</option>
-        <option value="Post or Organization of War Veterans">
-          Post or Organization of War Veterans
-        </option>
-        <option value="Domestic Fraternal Societies and Associations">
-          Domestic Fraternal Societies and Associations
-        </option>
-        <option value="Board of Trade">Board of Trade</option>
-        <option value="Chamber of Commerce">Chamber of Commerce</option>
-        <option value="Fraternal Beneficiary Society, Order or Association">
-          Fraternal Beneficiary Society, Order or Association
-        </option>
-        <option value="Cemetery Company">Cemetery Company</option>
-        <option value="Social Welfare Organization">
-          Social Welfare Organization
-        </option>
-        <option value="Civic League">Civic League</option>
-        <option value="Business League">Business League</option>
-      </select>
+    <div class="content cards-text-div">
+      <div class="text">
+        <h1 id="cards-text">
+          <span>Find your favorite charity</span>
+        </h1>
+      </div>
     </div>
 
-    <input
-      id="charitySpecific"
-      type="text"
-      placeholder="Name of Charity"
-      oninput="filltritng()"
-    />
+    <div id="filter">
+      <div id="classification">
+        <select
+          name="classification"
+          id="classification-choice"
+          onchange="getClassifiedCharities(this)"
+        >
+          <option value="Choose Organization">Choose Organization</option>
+          <option value="Religious Organization">Religious Organization</option>
+          <option value="Charitable Organization">Charitable Organization</option>
+          <option value="Educational Organization">
+            Educational Organization
+          </option>
+          <option value="Charitable Organization">Charitable Organization</option>
+          <option value="Pleasure, Recreational, or Social Club">
+            Pleasure, Recreational, or Social Club
+          </option>
+          <option value="Labor Organization">Labor Organization</option>
+          <option value="Post or Organization of War Veterans">
+            Post or Organization of War Veterans
+          </option>
+          <option value="Domestic Fraternal Societies and Associations">
+            Domestic Fraternal Societies and Associations
+          </option>
+          <option value="Board of Trade">Board of Trade</option>
+          <option value="Chamber of Commerce">Chamber of Commerce</option>
+          <option value="Fraternal Beneficiary Society, Order or Association">
+            Fraternal Beneficiary Society, Order or Association
+          </option>
+          <option value="Cemetery Company">Cemetery Company</option>
+          <option value="Social Welfare Organization">
+            Social Welfare Organization
+          </option>
+          <option value="Civic League">Civic League</option>
+          <option value="Business League">Business League</option>
+        </select>
+      </div>
+  
+      <div id="search">
+        <input
+          id="charitySpecific"
+          type="text"
+          placeholder="Charity Name"
+          oninput="filltritng()"
+        />
+        <div id="search-button-div"><i class="fa-solid fa-magnifying-glass"></i></div>
+      </div>
+
+      <div id="results"><span id="resultsNumber">49</span>Results</div>
+    </div>
 
     <div id="charity-container"></div>
     <div id="charities-container"></div>
@@ -111,8 +125,11 @@
       <div class="cards">
         {{#each item}}
           <div class="card" onclick="getInfoFromDiv(this)">
-            <h3>{{name}}</h3>
-            <p>{{classification}}</p>
+            <img class="card-img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/310408/psychopomp-100.jpg" alt="">
+            <div class="card-content">
+              <h3 class="card-name">{{name}}</h3>
+              <p class="card-class">{{classification}}</p>
+            </div>
           </div>
         {{/each}}
       </div>
