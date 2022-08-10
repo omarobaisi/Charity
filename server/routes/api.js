@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Charity = require("../models/charity");
+const Doner = require("../models/donor")
 const axios = require("axios");
 
 const getCharityInfo = async () => {
