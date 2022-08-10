@@ -43,3 +43,4 @@ closeCharityInfo = function () {
   continar.style.display = "none";
 };
 renderCharities();
+charityApi.getRandomImage();
