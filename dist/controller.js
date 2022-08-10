@@ -24,5 +24,14 @@ const donait = function (donaitButton) {
 getInfoFromDiv = function (div) {
   let name = $(div).find("h3").text();
   charityApi.getByName(name);
+  let continar = document.getElementById("charity-container");
+  continar.style.display = "block";
+};
+filltritng = function () {
+  charityApi.filltringCharity($("#charitySpecific").val());
+};
+closeCharityInfo = function () {
+  let continar = document.getElementById("charity-container");
+  continar.style.display = "none";
 };
 renderCharities();

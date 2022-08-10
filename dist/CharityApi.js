@@ -1,12 +1,15 @@
 const CharityApi = class {
+  constructor() {
+    this.data = [];
+  }
   async getAllCharity() {
-    const data = await $.get("/getCharities");
-    console.log(data);
+    this.data = await $.get("/getCharities");
+    console.log(this.data);
     const renderer = new Renderer(
       $("#charities-container"),
       $("#charities-template")
     );
-    renderer.renderCharities(data);
+    renderer.renderCharities(this.data);
   }
 
   getByName = function (charitySpecific) {
@@ -46,6 +49,7 @@ const CharityApi = class {
     };
     $.post("/donate", donorInfo, function (res) {});
   }
+
   getTotalAmount(charityName) {
     let totalamount = 0;
     $.get(`/getCharityAmount/${charityName}`, function (response) {
@@ -54,5 +58,17 @@ const CharityApi = class {
       });
       return totalamount;
     });
+  }
+  async filltringCharity(name) {
+    let newArray = this.data.filter((e) => {
+      if (e.name.toLowerCase().includes(name.toLowerCase())) {
+        return e;
+      }
+    });
+    const renderer = new Renderer(
+      $("#charities-container"),
+      $("#charities-template")
+    );
+    renderer.renderCharities(newArray);
   }
 };

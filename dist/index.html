@@ -61,10 +61,12 @@
       </select>
     </div>
 
-    <input id="charitySpecific" type="text" placeholder="Name of Charity" />
-    <button id="search" onclick="getCharityByName()">
-      <i class="fa fa-search">Search</i>
-    </button>
+    <input
+      id="charitySpecific"
+      type="text"
+      placeholder="Name of Charity"
+      oninput="filltritng()"
+    />
 
     <div id="charity-container"></div>
     <div id="charities-container"></div>
@@ -75,6 +77,7 @@
           <div>{{description}}</div>
           <div>{{classification}}</div>
           <div>{{website}}</div>
+          <span class="close" onclick="closeCharityInfo()">&times;</span>
         </div>
         <div>
           <button id="donateNow" onclick="donait(this)">donate Now</button>
