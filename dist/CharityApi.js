@@ -38,18 +38,12 @@ const CharityApi = class {
     });
   }
 
-  donate() {
+  donate(name, amount) {
     const donor = {
       name: name,
       amount: amount,
     };
-    axios
-      .post("/donate", donor)
-      .then((response) => {
-        this.produits = response.donor;
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    console.log(name);
+    $.post("/donate", donor, function (res) {});
   }
 };

@@ -14,4 +14,10 @@ getCharityByName = function () {
   charityApi.getByName(charityName);
 };
 
+const donait = function () {
+  let amount = $("#amount").val();
+  let nameOfdoner = $("#nameOfdoner").val();
+  charityApi.donate(nameOfdoner, amount);
+};
+
 renderCharities();

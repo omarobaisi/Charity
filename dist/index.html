@@ -8,17 +8,64 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
+    <div class="container">
+      <div class="header">
+        <img src="images/logo.png" class="logo" />
+      </div>
+      <div class="content">
+        <div class="text">
+          <h1>
+            Be Young, Have Fun, <br />
+            <span>place holdar</span>
+          </h1>
+          <p>another place holder<br />blahblahblahblah <br />zzzzzzzzzz</p>
+        </div>
+      </div>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="box">
+          <div class="content">
+            <h3>Card Three</h3>
+            <p>Charity Three description</p>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="box">
+          <div class="content">
+            <h3>Card Three</h3>
+            <p>Charity Three description</p>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="box">
+          <div class="content">
+            <h3>Card Three</h3>
+            <p>Charity Three description</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+
+
+
     <div>
       <label for="classification">Classification</label>
       <select
-      name="classification"
-      id="classification-choice"
-      onchange="getClassifiedCharities(this)"
+        name="classification"
+        id="classification-choice"
+        onchange="getClassifiedCharities(this)"
       >
         <option value="">Choose Organization</option>
         <option value="Religious Organization">Religious Organization</option>
         <option value="Charitable Organization">Charitable Organization</option>
-        <option value="Educational Organization">Educational Organization</option>
+        <option value="Educational Organization">
+          Educational Organization
+        </option>
         <option value="Charitable Organization">Charitable Organization</option>
         <option value="Pleasure, Recreational, or Social Club">
           Pleasure, Recreational, or Social Club
@@ -48,6 +95,29 @@
     <button id="search" onclick="getCharityByName()">
       <i class="fa fa-search">Search</i>
     </button>
+
+    <div>
+      <button id="donateNow" onclick="donait()">donate Now</button>
+
+      <label for="name">Name:</label><br />
+      <input
+        type="text"
+        name="fullName"
+        id="nameOfdoner"
+        onkeypress="return (event.charCode > 64 && 
+        event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode=0)"
+        placeholder="Full Name"
+      /><br />
+      <label for="amount">Amount:</label><br />
+      <input
+        class="mask"
+        type="number"
+        id="amount"
+        name="amount"
+        min="1"
+        placeholder="amount of donation"
+      />
+    </div>
 
     <div id="charity-container"></div>
     <div id="charities-container"></div>
