@@ -16,10 +16,10 @@
       <div class="content">
         <div class="text">
           <h1>
-            Be Young, Have Fun, <br />
-            <span>place holdar</span>
+            I have found that among its other benefits
+            giving liberates the soul of the giver.
           </h1>
-          <p>another place holder<br />blahblahblahblah <br />zzzzzzzzzz</p>
+          <p>Maya Angelou</p>
         </div>
       </div>
     </div>
@@ -86,16 +86,25 @@
     <div id="charity-container"></div>
     <div id="charities-container"></div>
     <script id="charity-template" type="text/x-handlebars-template">
-      <div class="charityInfo">
-        <div>
+      <div class="charity">
+        <div class="close-div">
+          <span class="close" onclick="closeCharityInfo()">&times;</span>
+        </div>
+        <div class="top-doners">
+          <h1>asd</h1>
+          <h1>asd</h1>
+          <h1>asd</h1>
+          <h1>asd</h1>
+          <h1>asd</h1>
+        </div>
+        <div class="charityInfo">
           <div id="name">{{name}}</div>
           <div>{{description}}</div>
           <div>{{classification}}</div>
           <div>{{website}}</div>
           <div id="total">total = {{total}}</div>
-          <span class="close" onclick="closeCharityInfo()">&times;</span>
         </div>
-        <div>
+        <div class="donate">
           <button id="donateNow" onclick="donait(this)">donate Now</button>
 
           <label for="name">Name:</label><br />

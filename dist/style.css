@@ -194,6 +194,7 @@ body {
   position: relative;
   transition: all 300ms ease-in-out;
   margin: 20px;
+  background-color: #82D2DC;
 }
 .card:hover {
   transform: scale(1.05, 1.05);
@@ -208,7 +209,6 @@ body {
 
 .card-content {
   padding: 20px 20px;
-  background-color: white;
 }
 
 .card-name {
@@ -236,9 +236,7 @@ body {
 
 /*  */
 
-.charityInfo {
-  border: 1px solid black;
-}
+/*!  */
 
 /* Modal Content */
 #charity-container {
@@ -254,25 +252,55 @@ body {
   background-color: rgb(0, 0, 0); /* Fallback color */
   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
-.charityInfo {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-}
 .close {
-  color: #aaaaaa;
+  color: black;
   float: inline-start;
   float: right;
-  bottom: 200px;
-  font-size: 28px;
+  font-size: 35px;
   font-weight: bold;
+  position: absolute;
+  top: 0;
 }
 
 .close:hover,
 .close:focus {
-  color: #000;
+  color: white;
   text-decoration: none;
   cursor: pointer;
+}
+
+
+/*  */
+
+.charity {
+  border: 1px solid black;
+  background-color: #E6D7E2;
+  margin: auto;
+  border: 1px solid #888;
+  width: 90%;
+  display: flex;
+  height: 450px;
+}
+
+.charityInfo {
+  background-color: white;
+  padding: 15px;
+}
+
+#name {
+  margin-top: 30px;
+}
+
+.close-div {
+  position: relative;
+}
+
+.top-doners {
+  margin-top: 30px;
+  padding: 15px;
+}
+
+.donate {
+  margin-top: 30px;
+  padding: 15px;
 }
