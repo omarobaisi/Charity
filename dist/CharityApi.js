@@ -7,7 +7,7 @@ const CharityApi = class {
     this.data.forEach(charity => {
       charity.img = getRandomImage();
     })
-    console.log(this.data);
+    $("#resultsNumber").text(this.data.length);
     const renderer = new Renderer(
       $("#charities-container"),
       $("#charities-template")
@@ -42,6 +42,7 @@ const CharityApi = class {
           charity.img = getRandomImage();
           console.log(charity)
         })
+        $("#resultsNumber").text(response.length);
         const renderer = new Renderer(
           "#charities-container",
           "#charities-template"
@@ -79,6 +80,7 @@ const CharityApi = class {
         return e;
       }
     });
+    $("#resultsNumber").text(newArray.length);
     // if(name !== "") {
     //   $("#classification-choice").val("Choose Organization").change();
     // }
