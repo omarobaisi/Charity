@@ -280,27 +280,137 @@ body {
   width: 90%;
   display: flex;
   height: 450px;
+  font-family: "Poppins", sans-serif;
 }
 
 .charityInfo {
   background-color: white;
   padding: 15px;
+  width: 60%;
+}
+
+#name-desc {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 70%;
+  text-align: center;
 }
 
 #name {
-  margin-top: 30px;
+  /* margin-top: 30px; */
+  font-size: 30px;
+}
+
+#description-text {
+  font-size: 20px;
+}
+
+#description {
+  font-size: 20px;
+  padding: 0 10px;
+}
+
+#total-website {
+  height: 30%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+#total {
+  background-color: #F05537;
+  padding: 10px;
+  color: white;
+}
+
+#website {
+  color: #F05537;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+#website:hover {
+  color: black;
 }
 
 .close-div {
   position: relative;
 }
 
-.top-doners {
+/* .top-doners {
   margin-top: 30px;
   padding: 15px;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
+
+#top-doners-header {
+  font-size: 20px;
+}
+
+.donation {
+
+}
+
+.doner-name {
+
+}
+
+.donation-amount {
+  margin-top: 10px;
+} */
 
 .donate {
   margin-top: 30px;
   padding: 15px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-around;
+  font-size: 20px;
+  width: 40%;
+}
+
+#donateHeader {
+  font-size: 30px;
+}
+
+#nameOfdoner, #amount {
+  border: 2px solid white;
+  outline: none;
+  box-sizing: border-box;
+  transition: 0.5s ease-in-out;
+  height: 40px;
+  margin-top: 10px;
+  width: 100%;
+  padding: 0 10px;
+}
+
+#nameOfdoner:hover, #amount:hover {
+  border: 2px solid #783C5A;
+}
+
+#nameOfdonerDiv, #amoundDiv, #donateNowDiv {
+  margin: 0 20px;
+}
+
+#donateNow {
+  width: 70%;
+  background-color: #F05537;
+  border: 2px solid #F05537;
+  color: white;
+  padding: 10px;
+  transition: 500ms ease-in-out;
+  font-size: 15px;
+}
+
+#donateNow:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid #F05537;
 }

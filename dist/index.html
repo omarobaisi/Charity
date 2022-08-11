@@ -90,42 +90,60 @@
         <div class="close-div">
           <span class="close" onclick="closeCharityInfo()">&times;</span>
         </div>
-        <div class="top-doners">
-          <h1>asd</h1>
-          <h1>asd</h1>
-          <h1>asd</h1>
-          <h1>asd</h1>
-          <h1>asd</h1>
-        </div>
+        <!-- <div class="top-doners">
+          <h1 id="top-doners-header">Top Donoers</h1>
+          <div class="donation">
+            <div class="doner-name">asd</div>
+            <div class="donation-amount">123</div>
+          </div>
+          <div class="donation">
+            <div class="doner-name">asd</div>
+            <div class="donation-amount">123</div>
+          </div>
+          <div class="donation">
+            <div class="doner-name">asd</div>
+            <div class="donation-amount">123</div>
+          </div>
+          <div class="donation">
+            <div class="doner-name">asd</div>
+            <div class="donation-amount">123</div>
+          </div>
+        </div> -->
         <div class="charityInfo">
-          <div id="name">{{name}}</div>
-          <div>{{description}}</div>
-          <div>{{classification}}</div>
-          <div>{{website}}</div>
-          <div id="total">total = {{total}}</div>
+          <div id="name-desc">
+            <h1 id="name">{{name}}</h1>
+            <div id="description-text">Description</div>
+            <div id="description">{{description}}</div>
+          </div>
+          <!-- <div>{{classification}}</div> -->
+          <div id="total-website">
+            <div id="total">Total Donations: {{total}}₪</div>
+            <div><a id="website" href="{{website}}">Visit Website</a></div>
+          </div>
         </div>
         <div class="donate">
-          <button id="donateNow" onclick="donait(this)">donate Now</button>
-
-          <label for="name">Name:</label><br />
-          <input
-            type="text"
-            name="fullName"
-            id="nameOfdoner"
-            onkeypress="return (event.charCode > 64 && 
-            event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode=0)"
-            placeholder="Full Name"
-          /><br />
-          <label for="amount">Amount:</label><br />
-          <input
-            class="mask"
-            type="number"
-            id="amount"
-            name="amount"
-            min="1"
-            placeholder="amount of donation"
-          />
-          <input type="hidden" value="{{name}}" />
+          <h1 id="donateHeader">Donate</h1>
+          <div id="nameOfdonerDiv">
+            <label for="name">Name</label><br />
+            <input
+              type="text"
+              id="nameOfdoner"
+              placeholder="Full Name"
+              required
+            />
+          </div>
+          <div id="amoundDiv">
+            <label for="amount">Amount</label><br />
+            <input
+              class="mask"
+              type="number"
+              id="amount"
+              min="1"
+              placeholder="Donation Amount"
+              required
+            />
+          </div>
+          <div id="donateNowDiv"><button id="donateNow" onclick="donait(this)">Donate Now</button></div>
         </div>
       </div>
     </script>
