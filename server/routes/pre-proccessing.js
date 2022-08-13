@@ -32,11 +32,11 @@ const fetchCharities = async () => {
         let charityInfo = await getCharityInfo();
         const charities = orgenizeAPI(charityInfo.data);
         charities.forEach(async (charity) => {
-          const newCharities = new Charity(charity);
-          const savedCharities = await newCharities.save();
-          console.log(savedCharities);
+          const newCharity = new Charity(charity);
+          await newCharity.save();
         });
-        response.send(charities);
+        console.log(charities)
+        console.log("Charity informaions saved to DB")
     } catch (e) {
         console.log(e);
     }
