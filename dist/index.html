@@ -6,7 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./style.css" />
-    <script src="https://kit.fontawesome.com/dcd23d6329.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/dcd23d6329.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <div class="container">
@@ -16,14 +19,13 @@
       <div class="content">
         <div class="text">
           <h1>
-            I have found that among its other benefits
-            giving liberates the soul of the giver.
+            I have found that among its other benefits giving liberates the soul
+            of the giver.
           </h1>
           <p>Maya Angelou</p>
         </div>
       </div>
     </div>
-
     <div class="content cards-text-div">
       <div class="text">
         <h1 id="cards-text">
@@ -31,7 +33,6 @@
         </h1>
       </div>
     </div>
-
     <div id="filter">
       <div id="classification">
         <select
@@ -41,11 +42,15 @@
         >
           <option value="Choose Organization">Choose Organization</option>
           <option value="Religious Organization">Religious Organization</option>
-          <option value="Charitable Organization">Charitable Organization</option>
+          <option value="Charitable Organization">
+            Charitable Organization
+          </option>
           <option value="Educational Organization">
             Educational Organization
           </option>
-          <option value="Charitable Organization">Charitable Organization</option>
+          <option value="Charitable Organization">
+            Charitable Organization
+          </option>
           <option value="Pleasure, Recreational, or Social Club">
             Pleasure, Recreational, or Social Club
           </option>
@@ -69,7 +74,6 @@
           <option value="Business League">Business League</option>
         </select>
       </div>
-  
       <div id="search">
         <input
           id="charitySpecific"
@@ -77,12 +81,13 @@
           placeholder="Charity Name"
           oninput="filltritng()"
         />
-        <div id="search-button-div"><i class="fa-solid fa-magnifying-glass"></i></div>
+        <div id="search-button-div">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
       </div>
 
       <div id="results"><span id="resultsNumber">49</span>Results</div>
     </div>
-
     <div id="charity-container"></div>
     <div id="charities-container"></div>
     <script id="charity-template" type="text/x-handlebars-template">
@@ -90,32 +95,12 @@
         <div class="close-div">
           <span class="close" onclick="closeCharityInfo()">&times;</span>
         </div>
-        <!-- <div class="top-doners">
-          <h1 id="top-doners-header">Top Donoers</h1>
-          <div class="donation">
-            <div class="doner-name">asd</div>
-            <div class="donation-amount">123</div>
-          </div>
-          <div class="donation">
-            <div class="doner-name">asd</div>
-            <div class="donation-amount">123</div>
-          </div>
-          <div class="donation">
-            <div class="doner-name">asd</div>
-            <div class="donation-amount">123</div>
-          </div>
-          <div class="donation">
-            <div class="doner-name">asd</div>
-            <div class="donation-amount">123</div>
-          </div>
-        </div> -->
         <div class="charityInfo">
           <div id="name-desc">
             <h1 id="name">{{name}}</h1>
             <div id="description-text">Description</div>
             <div id="description">{{description}}</div>
           </div>
-          <!-- <div>{{classification}}</div> -->
           <div id="total-website">
             <div id="total">Total Donations: {{total}}₪</div>
             <div><a id="website" href="{{website}}">Visit Website</a></div>
@@ -143,7 +128,10 @@
               required
             />
           </div>
-          <div id="donateNowDiv"><button id="donateNow" onclick="donait(this)">Donate Now</button></div>
+          <div id="donateNowDiv"><button
+              id="donateNow"
+              onclick="donait(this)"
+            >Donate Now</button></div>
         </div>
       </div>
     </script>
@@ -152,7 +140,7 @@
       <div class="cards">
         {{#each item}}
           <div class="card" onclick="getInfoFromDiv(this)">
-            <img class="card-img" src="{{img}}" alt="">
+            <img class="card-img" src="{{img}}" alt="" />
             <div class="card-content">
               <h3 class="card-name">{{name}}</h3>
               <p class="card-class">{{classification}}</p>
