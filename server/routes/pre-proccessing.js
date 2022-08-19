@@ -1,3 +1,7 @@
+const mongoose = require("mongoose");
+const url = process.env.MONGODB_URI || "mongodb://localhost/charity";
+mongoose.connect(url)
+
 const Charity = require("../models/charity");
 const axios = require("axios");
 

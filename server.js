@@ -9,7 +9,7 @@ app.use(express.static(path.join(__dirname, "dist")));
 app.use(express.static(path.join(__dirname, "node_modules")));
 
 const mongoose = require("mongoose");
-const url = process.env.MONGODB_URI || "mongodb://localhost/yelp_camp";
+const url = process.env.MONGODB_URI || "mongodb://localhost/charity";
 mongoose.connect(url)
 
 app.use("/", api);
